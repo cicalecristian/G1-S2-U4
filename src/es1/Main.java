@@ -23,14 +23,14 @@ public class Main {
         int numero = Integer.parseInt(scanner.nextLine());
 
         while (numero != 0) {
-            System.out.println("inserisci la posizione (1 - 5): ");
-            int posizione = Integer.parseInt(scanner.nextLine());
-            if (posizione >= 1 && posizione < array.length) {
-                array[posizione - 1] = numero;
-            } else {
-                System.out.println("Posizione non valida!");
-            }
 
+            try {
+                System.out.println("Inserisci la posizione (1 - 5): ");
+                int posizione = Integer.parseInt(scanner.nextLine());
+                array[posizione - 1] = numero;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Errore: posizione fuori dai limiti dell'array!");
+            }
             System.out.println("Array aggioranto: ");
             for (int i = 0; i < array.length; i++) {
                 System.out.println("Posizione " + (i + 1) + ":" + array[i]);
